@@ -1,0 +1,9 @@
+{
+  "type": "moresponge:freezing",
+  "cookingTime": 200,
+  "experience": 0.15,
+  "input": "moresponge:hot_compressed_lava_sponge_2x",
+  "output": {
+    "id": "moresponge:compressed_lava_sponge_2x"
+  }
+}

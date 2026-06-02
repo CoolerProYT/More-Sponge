@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "moresponge:compressed_lava_sponge"
+  ],
+  "result": {
+    "count": 4,
+    "id": "moresponge:lava_sponge"
+  }
+}

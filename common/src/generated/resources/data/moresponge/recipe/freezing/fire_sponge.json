@@ -1,0 +1,9 @@
+{
+  "type": "moresponge:freezing",
+  "cookingTime": 200,
+  "experience": 0.15,
+  "input": "moresponge:burnt_fire_sponge",
+  "output": {
+    "id": "moresponge:fire_sponge"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "moresponge:block/burnt_fire_sponge"
+  }
+}

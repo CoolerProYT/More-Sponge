@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "moresponge:compressed_snow_sponge_5x"
+  ],
+  "result": {
+    "count": 4,
+    "id": "moresponge:compressed_snow_sponge_4x"
+  }
+}
