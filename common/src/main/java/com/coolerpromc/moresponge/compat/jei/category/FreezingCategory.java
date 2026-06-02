@@ -5,6 +5,8 @@ import com.coolerpromc.moresponge.block.MSBlocks;
 import com.coolerpromc.moresponge.block.entity.custom.FreezerBlockEntity;
 import com.coolerpromc.moresponge.recipe.custom.FreezingRecipe;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.placement.HorizontalAlignment;
 import mezz.jei.api.gui.placement.VerticalAlignment;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
@@ -18,8 +20,11 @@ import net.minecraft.network.chat.Component;
 public class FreezingCategory extends AbstractRecipeCategory<FreezingRecipe> {
     public static final IRecipeType<FreezingRecipe> TYPE = IRecipeType.create(Constants.id("freezing"), FreezingRecipe.class);
 
+    private final IGuiHelper guiHelper;
+
     public FreezingCategory(IGuiHelper guiHelper) {
         super(TYPE, Component.translatable("gui.jei.category.freezing"), guiHelper.createDrawableItemLike(MSBlocks.FREEZER), 82, 54);
+        this.guiHelper = guiHelper;
     }
 
     @Override
@@ -36,7 +41,14 @@ public class FreezingCategory extends AbstractRecipeCategory<FreezingRecipe> {
             cookTime = 200;
         }
         builder.addAnimatedRecipeArrow(cookTime).setPosition(26, 17);
-        builder.addAnimatedRecipeFlame(300).setPosition(1, 20);
+
+        IDrawable flameEmptyDrawable = guiHelper.drawableBuilder(Constants.id("textures/gui/sprites/container/freezer/flame_empty.png"), 0, 0, 14, 14).setTextureSize(14, 14).build();
+        builder.addDrawable(flameEmptyDrawable).setPosition(1, 20);
+
+        IDrawableAnimated flameDrawable = guiHelper.drawableBuilder(Constants.id("textures/gui/sprites/container/freezer/flame.png"), 0, 0, 14, 14)
+                .setTextureSize(14, 14)
+                .buildAnimated(cookTime, IDrawableAnimated.StartDirection.TOP, true);
+        builder.addDrawable(flameDrawable).setPosition(1, 20);
 
         addExperience(builder, recipe);
         addCookTime(builder, recipe);

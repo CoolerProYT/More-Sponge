@@ -5,6 +5,7 @@ import com.coolerpromc.moresponge.block.MSBlocks;
 import com.coolerpromc.moresponge.compat.jei.recipe.FreezerFuelRecipe;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.placement.HorizontalAlignment;
 import mezz.jei.api.gui.placement.VerticalAlignment;
 import mezz.jei.api.gui.widgets.IRecipeExtrasBuilder;
@@ -22,9 +23,11 @@ import java.text.NumberFormat;
 
 public class FreezingFuelCategory extends AbstractRecipeCategory<FreezerFuelRecipe> {
     public static final IRecipeType<FreezerFuelRecipe> TYPE = IRecipeType.create(Constants.id("freezing_fuel"), FreezerFuelRecipe.class);
+    private final IGuiHelper guiHelper;
 
     public FreezingFuelCategory(IGuiHelper guiHelper) {
         super(TYPE, Component.translatable("gui.jei.category.freezing_fuel"), new IconWithFlameOverlay(guiHelper), getMaxWidth(), 34);
+        this.guiHelper = guiHelper;
     }
 
     private static int getMaxWidth() {
@@ -44,7 +47,14 @@ public class FreezingFuelCategory extends AbstractRecipeCategory<FreezerFuelReci
     @Override
     public void createRecipeExtras(IRecipeExtrasBuilder builder, FreezerFuelRecipe recipe, IFocusGroup focuses) {
         int burnTime = recipe.getBurnTime();
-        builder.addAnimatedRecipeFlame(burnTime).setPosition(1, 0);
+
+        IDrawable flameEmptyDrawable = guiHelper.drawableBuilder(Constants.id("textures/gui/sprites/container/freezer/flame_empty.png"), 0, 0, 14, 14).setTextureSize(14, 14).build();
+        builder.addDrawable(flameEmptyDrawable).setPosition(1, 0);
+
+        IDrawableAnimated flameDrawable = guiHelper.drawableBuilder(Constants.id("textures/gui/sprites/container/freezer/flame.png"), 0, 0, 14, 14)
+                .setTextureSize(14, 14)
+                .buildAnimated(burnTime, IDrawableAnimated.StartDirection.TOP, true);
+        builder.addDrawable(flameDrawable).setPosition(1, 0);
 
         Component smeltCountText = createSmeltCountText(burnTime);
         builder.addText(smeltCountText, getWidth() - 20, getHeight())

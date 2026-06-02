@@ -103,7 +103,7 @@ public class FreezerMenu extends AbstractContainerMenu {
     }
 
     protected boolean canSmelt(ItemStack itemStack) {
-        return this.blockEntity.getInputSlot().canAddItem(itemStack);
+        return this.blockEntity.getInputSlot().canPlaceItem(0, itemStack);
     }
 
     public boolean isFuel(ItemStack itemStack) {

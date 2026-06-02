@@ -1,5 +1,6 @@
 package com.coolerpromc.moresponge.block.entity.custom;
 
+import com.coolerpromc.moresponge.MoreSpongeClient;
 import com.coolerpromc.moresponge.block.entity.MSBlockEntities;
 import com.coolerpromc.moresponge.recipe.MSRecipes;
 import com.coolerpromc.moresponge.recipe.custom.FreezingRecipe;
@@ -269,11 +270,13 @@ public class FreezerBlockEntity extends BlockEntity implements MenuProvider, Rec
     }
 
     private boolean hasRecipe(ItemStack stack){
+        SingleRecipeInput input = new SingleRecipeInput(stack);
         if (level instanceof ServerLevel serverLevel){
-            SingleRecipeInput input = new SingleRecipeInput(stack);
             return this.quickCheck.getRecipeFor(input, serverLevel).isPresent();
         }
-        return false;
+        else{
+            return MoreSpongeClient.syncedRecipes.getRecipesFor(MSRecipes.FREEZER_TYPE.get(), input, level).findAny().isPresent();
+        }
     }
 
     public void awardUsedRecipesAndPopExperience(ServerPlayer player) {
