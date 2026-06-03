@@ -1,7 +1,7 @@
 package com.coolerpromc.moresponge.recipe.builder;
 
 import com.coolerpromc.moresponge.recipe.custom.FreezingRecipe;
-import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
