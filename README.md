@@ -36,6 +36,26 @@ A Minecraft mod that adds new sponge variants with unique functionality, each ab
 
 All compression recipes are reversible.
 
+## Loot
+
+Sponges can also be found as loot.
+
+### Chest Loot (0–4)
+| Sponge | Found In |
+|---|---|
+| Sponge (vanilla) | Buried Treasure, Shipwreck (map, supply, treasure) |
+| Lava Sponge | Bastion Remnant (all chests), Nether Fortress |
+| Snow Sponge | Ancient City Ice Box, Igloo, Snowy Village House |
+| Fire Sponge | Ruined Portal, Desert Pyramid, Desert Village House |
+
+### Mob Drops (1–2)
+| Sponge | Dropped By |
+|---|---|
+| Compressed Sponge 2x | Elder Guardian |
+| Compressed Lava Sponge 2x | Ender Dragon |
+| Compressed Snow Sponge 2x | Warden |
+| Compressed Fire Sponge 2x | Wither |
+
 ## JEI Support
 
 Full JEI integration is included — browse all freezing recipes and fuel values directly in-game.

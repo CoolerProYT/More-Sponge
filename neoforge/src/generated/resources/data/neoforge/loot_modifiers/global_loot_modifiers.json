@@ -1,0 +1,13 @@
+{
+  "entries": [
+    "moresponge:snow_sponge_chest_loot_modifier",
+    "moresponge:lava_sponge_chest_loot_modifier",
+    "moresponge:fire_sponge_chest_loot_modifier",
+    "moresponge:water_sponge_chest_loot_modifier",
+    "moresponge:snow_sponge_entity_loot_modifier",
+    "moresponge:lava_sponge_entity_loot_modifier",
+    "moresponge:fire_sponge_entity_loot_modifier",
+    "moresponge:water_sponge_entity_loot_modifier"
+  ],
+  "replace": false
+}

@@ -15,4 +15,9 @@ public class MSDataGenerator {
         event.createProvider(MSBlockTagProvider::new);
         event.createProvider(MSLootTableProvider::new);
     }
+
+    @SubscribeEvent
+    public static void gatherServer(GatherDataEvent.Server event){
+        event.createProvider(MSGlobalLootModifierProvider::new);
+    }
 }

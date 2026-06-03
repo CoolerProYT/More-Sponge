@@ -2,6 +2,7 @@ package com.coolerpromc.moresponge;
 
 
 import com.coolerpromc.moresponge.block.entity.MSBlockEntities;
+import com.coolerpromc.moresponge.datagen.MSGlobalLootModifierProvider;
 import com.coolerpromc.moresponge.platform.NeoForgeRegistryHelper;
 import com.coolerpromc.moresponge.recipe.MSRecipes;
 import net.minecraft.world.SimpleContainer;
@@ -20,6 +21,7 @@ public class NeoForgeMoreSponge {
     public NeoForgeMoreSponge(IEventBus eventBus) {
         MoreSponge.init();
         NeoForgeRegistryHelper.register(eventBus);
+        MSGlobalLootModifierProvider.GLOBAL_LOOT_MODIFIER_SERIALIZERS.register(eventBus);
 
         eventBus.addListener(this::onRegisterCapabilities);
         NeoForge.EVENT_BUS.addListener(this::onOnDatapackSync);
