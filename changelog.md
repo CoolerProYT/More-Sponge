@@ -1,3 +1,8 @@
+## 26.1.2.2
+- Fixed game unable to start if using `neoforge 26.1.2.20-beta` or above due to loot modifier breaking change
+
+Fabric has no changes.
+
 ## 26.1.2.1
 - Sponge and Compressed Sponge (1x) can be obtained in chest loot and mob loot now.
 

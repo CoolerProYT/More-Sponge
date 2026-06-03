@@ -13,5 +13,6 @@
   ],
   "item": "moresponge:compressed_fire_sponge_2x",
   "max": 2,
-  "min": 1
+  "min": 1,
+  "priority": 100
 }

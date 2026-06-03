@@ -36,7 +36,7 @@ public class MSGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/igloo_chest")),
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/village/village_snowy_house"))
                 ).build()
-        }, MSBlocks.SNOW_SPONGE.asItem(), 0, 4));
+        }, 100, MSBlocks.SNOW_SPONGE.asItem(), 0, 4));
 
         this.add("lava_sponge_chest_loot_modifier", new MSLootModifier(new LootItemCondition[]{
                 AnyOfCondition.anyOf(
@@ -46,7 +46,7 @@ public class MSGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/bastion_treasure")),
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/nether_bridge"))
                 ).build()
-        }, MSBlocks.LAVA_SPONGE.asItem(), 0, 4));
+        }, 100, MSBlocks.LAVA_SPONGE.asItem(), 0, 4));
 
         this.add("fire_sponge_chest_loot_modifier", new MSLootModifier(new LootItemCondition[]{
                 AnyOfCondition.anyOf(
@@ -54,7 +54,7 @@ public class MSGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/desert_pyramid")),
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/village/village_desert_house"))
                 ).build()
-        }, MSBlocks.FIRE_SPONGE.asItem(), 0, 4));
+        }, 100, MSBlocks.FIRE_SPONGE.asItem(), 0, 4));
 
         this.add("water_sponge_chest_loot_modifier", new MSLootModifier(new LootItemCondition[]{
                 AnyOfCondition.anyOf(
@@ -63,30 +63,30 @@ public class MSGlobalLootModifierProvider extends GlobalLootModifierProvider {
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/shipwreck_supply")),
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("chests/shipwreck_treasure"))
                 ).build()
-        }, Items.SPONGE, 0, 4));
+        }, 100, Items.SPONGE, 0, 4));
 
         this.add("snow_sponge_entity_loot_modifier", new MSLootModifier(new LootItemCondition[]{
                 AnyOfCondition.anyOf(
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("entities/warden"))
                 ).build()
-        }, MSBlocks.COMPRESSED_SNOW_SPONGE_2X.asItem(), 1, 2));
+        }, 100, MSBlocks.COMPRESSED_SNOW_SPONGE_2X.asItem(), 1, 2));
 
         this.add("lava_sponge_entity_loot_modifier", new MSLootModifier(new LootItemCondition[]{
                 AnyOfCondition.anyOf(
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("entities/ender_dragon"))
                 ).build()
-        }, MSBlocks.COMPRESSED_LAVA_SPONGE_2X.asItem(), 1, 2));
+        }, 100, MSBlocks.COMPRESSED_LAVA_SPONGE_2X.asItem(), 1, 2));
 
         this.add("fire_sponge_entity_loot_modifier", new MSLootModifier(new LootItemCondition[]{
                 AnyOfCondition.anyOf(
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("entities/wither"))
                 ).build()
-        }, MSBlocks.COMPRESSED_FIRE_SPONGE_2X.asItem(), 1, 2));
+        }, 100, MSBlocks.COMPRESSED_FIRE_SPONGE_2X.asItem(), 1, 2));
 
         this.add("water_sponge_entity_loot_modifier", new MSLootModifier(new LootItemCondition[]{
                 AnyOfCondition.anyOf(
                         new LootTableIdCondition.Builder(Identifier.withDefaultNamespace("entities/elder_guardian"))
                 ).build()
-        }, MSBlocks.COMPRESSED_SPONGE_2X.asItem(), 1, 2));
+        }, 100, MSBlocks.COMPRESSED_SPONGE_2X.asItem(), 1, 2));
     }
 }

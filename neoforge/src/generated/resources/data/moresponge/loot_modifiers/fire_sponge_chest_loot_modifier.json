@@ -21,5 +21,6 @@
   ],
   "item": "moresponge:fire_sponge",
   "max": 4,
-  "min": 0
+  "min": 0,
+  "priority": 100
 }

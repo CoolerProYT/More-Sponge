@@ -27,8 +27,8 @@ public class MSLootModifier extends LootModifier {
     private final int min;
     private final int max;
 
-    public MSLootModifier(LootItemCondition[] conditionsIn, Item item, int min, int max) {
-        super(conditionsIn);
+    public MSLootModifier(LootItemCondition[] conditionsIn, int priority, Item item, int min, int max) {
+        super(conditionsIn, priority);
         this.item = item;
         this.min = min;
         this.max = max;
