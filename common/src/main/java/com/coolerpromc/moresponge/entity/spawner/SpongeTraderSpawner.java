@@ -29,8 +29,8 @@ import java.util.Optional;
 
 public class SpongeTraderSpawner implements CustomSpawner {
     private static final int DEFAULT_TICK_DELAY = 1200;
-    public static final int DEFAULT_SPAWN_DELAY = 36000;
-    public static final int MIN_SPAWN_CHANCE = 20;
+    public static final int DEFAULT_SPAWN_DELAY = 24000;
+    public static final int MIN_SPAWN_CHANCE = 30;
     private static final int MAX_SPAWN_CHANCE = 65;
     private static final int SPAWN_CHANCE_INCREASE = 25;
     private static final int SPAWN_ONE_IN_X_CHANCE = 10;
@@ -57,7 +57,7 @@ public class SpongeTraderSpawner implements CustomSpawner {
                 if (spawnDelay <= 0) {
                     data.setSpawnDelay(DEFAULT_SPAWN_DELAY);
                     int chanceToSpawn = data.spawnChance();
-                    int newSpawnChance = Mth.clamp(chanceToSpawn + MIN_SPAWN_CHANCE, MIN_SPAWN_CHANCE, MAX_SPAWN_CHANCE);
+                    int newSpawnChance = Mth.clamp(chanceToSpawn + SPAWN_CHANCE_INCREASE, MIN_SPAWN_CHANCE, MAX_SPAWN_CHANCE);
                     data.setSpawnChance(newSpawnChance);
                     if (this.random.nextInt(100) <= chanceToSpawn) {
                         if (this.spawn(level)) {
@@ -81,10 +81,6 @@ public class SpongeTraderSpawner implements CustomSpawner {
         Player player = level.getRandomPlayer();
         if (player == null) {
             return true;
-        }
-
-        if (this.random.nextInt(NUMBER_OF_SPAWN_ATTEMPTS) != 0) {
-            return false;
         }
 
         BlockPos playerPos = player.blockPosition();

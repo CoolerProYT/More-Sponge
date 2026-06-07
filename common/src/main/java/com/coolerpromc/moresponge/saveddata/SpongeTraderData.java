@@ -9,15 +9,15 @@ import net.minecraft.world.level.saveddata.SavedDataType;
 
 public class SpongeTraderData extends SavedData {
     public static final Codec<SpongeTraderData> CODEC = RecordCodecBuilder.create((i) -> i.group(
-            Codec.INT.optionalFieldOf("spawn_delay", 36000).forGetter((data) -> data.spawnDelay),
-            Codec.INT.optionalFieldOf("spawn_chance", 20).forGetter((data) -> data.spawnChance)
+            Codec.INT.optionalFieldOf("spawn_delay", 24000).forGetter((data) -> data.spawnDelay),
+            Codec.INT.optionalFieldOf("spawn_chance", 30).forGetter((data) -> data.spawnChance)
     ).apply(i, SpongeTraderData::new));
     public static final SavedDataType<SpongeTraderData> TYPE = new SavedDataType<>(Constants.id("sponge_trader"), SpongeTraderData::new, CODEC, DataFixTypes.SAVED_DATA_WANDERING_TRADER);
     private int spawnDelay;
     private int spawnChance;
 
     public SpongeTraderData() {
-        this(36000, 20);
+        this(24000, 30);
     }
 
     public SpongeTraderData(int spawnDelay, int spawnChance) {
