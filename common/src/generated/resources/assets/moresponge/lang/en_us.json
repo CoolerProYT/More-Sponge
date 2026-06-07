@@ -46,9 +46,18 @@
   "block.moresponge.wet_compressed_sponge_3x": "Wet Compressed Sponge 3x",
   "block.moresponge.wet_compressed_sponge_4x": "Wet Compressed Sponge 4x",
   "block.moresponge.wet_compressed_sponge_5x": "Wet Compressed Sponge 5x",
+  "entity.moresponge.fire_sponge_trader": "Fire Sponge Trader",
+  "entity.moresponge.lava_sponge_trader": "Lava Sponge Trader",
+  "entity.moresponge.snow_sponge_trader": "Snow Sponge Trader",
+  "entity.moresponge.water_sponge_trader": "Water Sponge Trader",
+  "gamerule.moresponge.spawn_sponge_traders": "Spawn Sponge Traders",
   "gui.jei.category.freezing": "Freezing",
   "gui.jei.category.freezing_fuel": "Freezing Fuel",
   "gui.jei.category.fuel.freezeCount": "Freezes %s items",
   "gui.jei.category.fuel.freezeCount.single": "Freezes 1 item",
+  "item.moresponge.fire_sponge_trader_spawn_egg": "Fire Sponge Trader Spawn Egg",
+  "item.moresponge.lava_sponge_trader_spawn_egg": "Lava Sponge Trader Spawn Egg",
+  "item.moresponge.snow_sponge_trader_spawn_egg": "Snow Sponge Trader Spawn Egg",
+  "item.moresponge.water_sponge_trader_spawn_egg": "Water Sponge Trader Spawn Egg",
   "itemGroup.more_sponge": "More Sponge"
 }

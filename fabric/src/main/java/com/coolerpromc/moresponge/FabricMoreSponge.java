@@ -3,9 +3,11 @@ package com.coolerpromc.moresponge;
 import com.coolerpromc.moresponge.block.MSBlocks;
 import com.coolerpromc.moresponge.block.entity.MSBlockEntities;
 import com.coolerpromc.moresponge.block.entity.custom.FreezerBlockEntity;
+import com.coolerpromc.moresponge.entity.MSEntities;
 import com.coolerpromc.moresponge.recipe.MSRecipes;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization;
 import net.fabricmc.fabric.api.transfer.v1.item.ContainerStorage;
 import net.fabricmc.fabric.api.transfer.v1.item.ItemStorage;
@@ -15,6 +17,7 @@ import net.fabricmc.fabric.api.transfer.v1.storage.base.CombinedSlottedStorage;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -74,6 +77,11 @@ public class FabricMoreSponge implements ModInitializer {
         MoreSponge.init();
         ItemStorage.SIDED.registerForBlockEntity(this::onRegisterCapabilities, MSBlockEntities.FREEZER.get());
         RecipeSynchronization.synchronizeRecipeSerializer(MSRecipes.FREEZER_SERIALIZER.get());
+
+        FabricDefaultAttributeRegistry.register(MSEntities.WATER_SPONGE_TRADER.get(), Mob.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(MSEntities.LAVA_SPONGE_TRADER.get(), Mob.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(MSEntities.FIRE_SPONGE_TRADER.get(), Mob.createMobAttributes());
+        FabricDefaultAttributeRegistry.register(MSEntities.SNOW_SPONGE_TRADER.get(), Mob.createMobAttributes());
 
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
             Identifier id = key.identifier();

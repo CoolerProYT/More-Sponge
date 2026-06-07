@@ -3,6 +3,8 @@ package com.coolerpromc.moresponge.platform.util;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
@@ -42,4 +44,6 @@ public interface RegistryHandler<R, T extends R> extends Supplier<T> {
             return asItem().getDefaultInstance();
         }
     }
+
+    interface Entities<E extends Entity> extends RegistryHandler<EntityType<?>, EntityType<E>>{}
 }
