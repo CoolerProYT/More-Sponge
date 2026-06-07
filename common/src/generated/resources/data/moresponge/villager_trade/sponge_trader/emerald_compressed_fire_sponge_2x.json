@@ -1,0 +1,11 @@
+{
+  "gives": {
+    "id": "moresponge:compressed_fire_sponge_2x"
+  },
+  "max_uses": 2.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 36.0,
+    "id": "minecraft:emerald"
+  }
+}

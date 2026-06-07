@@ -1,0 +1,11 @@
+{
+  "gives": {
+    "id": "moresponge:compressed_lava_sponge_4x"
+  },
+  "max_uses": 1.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 6.0,
+    "id": "minecraft:emerald_block"
+  }
+}

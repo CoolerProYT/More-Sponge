@@ -14,6 +14,9 @@ public class MSDataGenerator {
         event.createProvider(MSRecipeProvider.Runner::new);
         event.createProvider(MSBlockTagProvider::new);
         event.createProvider(MSLootTableProvider::new);
+        event.createProvider(MSDatapackProvider::new);
+        event.createProvider(MSVillagerTradeTagProvider::new);
+        event.createProvider(MSBiomeTagProvider::new);
     }
 
     @SubscribeEvent

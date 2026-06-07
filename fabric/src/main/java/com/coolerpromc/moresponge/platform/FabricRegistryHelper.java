@@ -9,14 +9,19 @@ import com.coolerpromc.moresponge.platform.util.RegistryHandler;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.fabricmc.fabric.api.menu.v1.ExtendedMenuType;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityDataRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
@@ -30,12 +35,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.gamerules.GameRule;
 
 import java.util.Arrays;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class FabricRegistryHelper implements IRegistryHelper {
     @Override
@@ -165,6 +168,60 @@ public class FabricRegistryHelper implements IRegistryHelper {
 
             @Override
             public MenuType<T> get() {
+                return holder.value();
+            }
+        };
+    }
+
+    @Override
+    public <T extends Entity> RegistryHandler.Entities<T> registerEntity(String name, EntityType.EntityFactory<T> factory, MobCategory category, UnaryOperator<EntityType.Builder<T>> builder) {
+        ResourceKey<EntityType<?>> key = IRegistryHelper.entityKey(name);
+        Holder<EntityType<T>> holder = Registry.registerForHolder(BuiltInRegistries.ENTITY_TYPE, key.identifier(), builder.apply(EntityType.Builder.of(factory, category)).build(key));
+
+        return new RegistryHandler.Entities<>() {
+            @Override
+            public Holder<EntityType<?>> holder() {
+                return (Holder<EntityType<?>>) (Holder<?>) holder;
+            }
+
+            @Override
+            public EntityType<T> get() {
+                return holder.value();
+            }
+        };
+    }
+
+    @Override
+    public <T> RegistryHandler<EntityDataSerializer<?>, EntityDataSerializer<T>> registerEntityDataSerializer(String name, StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec) {
+        Identifier id = Constants.id(name);
+        EntityDataSerializer<T> serializer = EntityDataSerializer.forValueType(streamCodec);
+        FabricEntityDataRegistry.register(id, serializer);
+
+        return new RegistryHandler<>() {
+            @Override
+            public Holder<EntityDataSerializer<?>> holder() {
+                return Holder.direct(serializer);
+            }
+
+            @Override
+            public EntityDataSerializer<T> get() {
+                return serializer;
+            }
+        };
+    }
+
+    @Override
+    public <T> RegistryHandler<GameRule<?>, GameRule<T>> registerGameRule(String name, GameRule<T> gameRule) {
+        Holder<GameRule<T>> holder = Registry.registerForHolder(BuiltInRegistries.GAME_RULE, Constants.id(name), gameRule);
+
+        return new RegistryHandler<>() {
+            @Override
+            public Holder<GameRule<?>> holder() {
+                return (Holder<GameRule<?>>) (Holder<?>) holder;
+            }
+
+            @Override
+            public GameRule<T> get() {
                 return holder.value();
             }
         };

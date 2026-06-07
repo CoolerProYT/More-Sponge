@@ -2,6 +2,8 @@ package com.coolerpromc.moresponge.datagen;
 
 import com.coolerpromc.moresponge.Constants;
 import com.coolerpromc.moresponge.block.MSBlocks;
+import com.coolerpromc.moresponge.entity.MSEntities;
+import com.coolerpromc.moresponge.item.MSItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -76,5 +78,17 @@ public class MSLanguageProvider extends LanguageProvider {
         add(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_3X.get(), "Burnt Compressed Fire Sponge 3x");
         add(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_4X.get(), "Burnt Compressed Fire Sponge 4x");
         add(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_5X.get(), "Burnt Compressed Fire Sponge 5x");
+
+        add(MSEntities.WATER_SPONGE_TRADER.get(), "Water Sponge Trader");
+        add(MSEntities.LAVA_SPONGE_TRADER.get(), "Lava Sponge Trader");
+        add(MSEntities.FIRE_SPONGE_TRADER.get(), "Fire Sponge Trader");
+        add(MSEntities.SNOW_SPONGE_TRADER.get(), "Snow Sponge Trader");
+
+        add(MSItems.WATER_SPONGE_TRADER_SPAWN_EGG.get(), "Water Sponge Trader Spawn Egg");
+        add(MSItems.LAVA_SPONGE_TRADER_SPAWN_EGG.get(), "Lava Sponge Trader Spawn Egg");
+        add(MSItems.FIRE_SPONGE_TRADER_SPAWN_EGG.get(), "Fire Sponge Trader Spawn Egg");
+        add(MSItems.SNOW_SPONGE_TRADER_SPAWN_EGG.get(), "Snow Sponge Trader Spawn Egg");
+
+        add("gamerule.moresponge.spawn_sponge_traders", "Spawn Sponge Traders");
     }
 }

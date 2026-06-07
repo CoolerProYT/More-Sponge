@@ -56,6 +56,30 @@ Sponges can also be found as loot.
 | Compressed Snow Sponge 2x | Warden |
 | Compressed Fire Sponge 2x | Wither |
 
+## Sponge Traders
+
+Four new trader mobs that spawn naturally in the world, similar to the Wandering Trader but with a lower spawn chance. Each trader specializes in one sponge type and only appears in biomes matching their element.
+
+| Trader | Spawns In |
+|---|---|
+| Water Sponge Trader | Ocean, river, and beach biomes |
+| Lava Sponge Trader | Nether biomes |
+| Fire Sponge Trader | Badlands and desert biomes |
+| Snow Sponge Trader | Cold and snowy biomes |
+
+### Trades
+Each trader offers three tiers of trades:
+- **Buying** — The trader buys your sponges in exchange for emeralds.
+- **Common** — Buy base and compressed (1x) sponges with emeralds.
+- **Uncommon** — Buy higher-tier compressed sponges (2x–5x) with emeralds or emerald blocks.
+
+Traders despawn after roughly 2.5 in-game days. They can also be spawned manually using their respective **spawn eggs**.
+
+### Game Rule
+| Rule                              | Default | Description |
+|-----------------------------------|---|---|
+| `moresponge:spawn_sponge_traders` | `true` | Controls whether Sponge Traders spawn naturally in the world. |
+
 ## JEI Support
 
 Full JEI integration is included — browse all freezing recipes and fuel values directly in-game.

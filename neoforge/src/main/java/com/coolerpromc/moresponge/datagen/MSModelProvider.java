@@ -2,6 +2,7 @@ package com.coolerpromc.moresponge.datagen;
 
 import com.coolerpromc.moresponge.Constants;
 import com.coolerpromc.moresponge.block.MSBlocks;
+import com.coolerpromc.moresponge.item.MSItems;
 import com.coolerpromc.moresponge.platform.util.RegistryHandler;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
@@ -107,6 +108,11 @@ public class MSModelProvider extends ModelProvider {
         spongeBlock(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_3X, BURNT_FIRE_SPONGE_TEX, COMPRESSED_3X);
         spongeBlock(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_4X, BURNT_FIRE_SPONGE_TEX, COMPRESSED_4X);
         spongeBlock(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_5X, BURNT_FIRE_SPONGE_TEX, COMPRESSED_5X);
+
+        itemModels.generateFlatItem(MSItems.FIRE_SPONGE_TRADER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(MSItems.LAVA_SPONGE_TRADER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(MSItems.SNOW_SPONGE_TRADER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(MSItems.WATER_SPONGE_TRADER_SPAWN_EGG.get(), ModelTemplates.FLAT_ITEM);
     }
 
     private <T extends Block> void spongeBlock(RegistryHandler.Blocks<T> block, Identifier layer0, Identifier layer1) {

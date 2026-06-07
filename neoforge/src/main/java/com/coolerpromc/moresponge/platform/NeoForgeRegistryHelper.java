@@ -11,6 +11,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.network.syncher.EntityDataSerializer;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.BlockItem;
@@ -24,18 +29,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.gamerules.GameRule;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.neoforged.neoforge.registries.*;
 
 import java.util.Arrays;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class NeoForgeRegistryHelper implements IRegistryHelper {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Constants.MODID);
@@ -45,6 +45,9 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, Constants.MODID);
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, Constants.MODID);
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, Constants.MODID);
+    public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.createEntities(Constants.MODID);
+    public static final DeferredRegister<EntityDataSerializer<?>> ENTITY_SERIALIZERS = DeferredRegister.create(NeoForgeRegistries.Keys.ENTITY_DATA_SERIALIZERS, Constants.MODID);
+    public static final DeferredRegister<GameRule<?>> GAME_RULES = DeferredRegister.create(Registries.GAME_RULE, Constants.MODID);
 
     @Override
     public <T extends Block> RegistryHandler.Blocks<T> registerBlock(String name, Function<BlockBehaviour.Properties, T> func, BlockBehaviour.Properties p) {
@@ -53,7 +56,7 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         return new RegistryHandler.Blocks<>() {
             @Override
             public Holder<Block> holder() {
-                return deferredBlock.getDelegate();
+                return deferredBlock;
             }
 
             @Override
@@ -70,7 +73,7 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         return new RegistryHandler.Items<>() {
             @Override
             public Holder<Item> holder() {
-                return deferredItem.getDelegate();
+                return deferredItem;
             }
 
             @Override
@@ -92,7 +95,7 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         return new RegistryHandler<>() {
             @Override
             public Holder<CreativeModeTab> holder() {
-                return deferredHolder.getDelegate();
+                return deferredHolder;
             }
 
             @Override
@@ -109,7 +112,7 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         return new RegistryHandler<>() {
             @Override
             public Holder<BlockEntityType<?>> holder() {
-                return deferredHolder.getDelegate();
+                return deferredHolder;
             }
 
             @Override
@@ -126,7 +129,7 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         return new RegistryHandler<>() {
             @Override
             public Holder<RecipeType<?>> holder() {
-                return deferredHolder.getDelegate();
+                return deferredHolder;
             }
 
             @Override
@@ -143,7 +146,7 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         return new RegistryHandler<>() {
             @Override
             public Holder<RecipeSerializer<?>> holder() {
-                return deferredHolder.getDelegate();
+                return deferredHolder;
             }
 
             @Override
@@ -160,11 +163,63 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         return new RegistryHandler<>() {
             @Override
             public Holder<MenuType<?>> holder() {
-                return deferredHolder.getDelegate();
+                return deferredHolder;
             }
 
             @Override
             public MenuType<T> get() {
+                return deferredHolder.get();
+            }
+        };
+    }
+
+    @Override
+    public <T extends Entity> RegistryHandler.Entities<T> registerEntity(String name, EntityType.EntityFactory<T> factory, MobCategory category, UnaryOperator<EntityType.Builder<T>> builder) {
+        ResourceKey<EntityType<?>> key = IRegistryHelper.entityKey(name);
+        DeferredHolder<EntityType<?>, EntityType<T>> deferredHolder = ENTITIES.register(name, () -> builder.apply(EntityType.Builder.of(factory, category)).build(key));
+        
+        return new RegistryHandler.Entities<>() {
+            @Override
+            public Holder<EntityType<?>> holder() {
+                return deferredHolder;
+            }
+
+            @Override
+            public EntityType<T> get() {
+                return deferredHolder.get();
+            }
+        };
+    }
+
+    @Override
+    public <T> RegistryHandler<EntityDataSerializer<?>, EntityDataSerializer<T>> registerEntityDataSerializer(String name, StreamCodec<? super RegistryFriendlyByteBuf, T> streamCodec) {
+        DeferredHolder<EntityDataSerializer<?>, EntityDataSerializer<T>> deferredHolder = ENTITY_SERIALIZERS.register(name, () -> EntityDataSerializer.forValueType(streamCodec));
+
+        return new RegistryHandler<>() {
+            @Override
+            public Holder<EntityDataSerializer<?>> holder() {
+                return deferredHolder;
+            }
+
+            @Override
+            public EntityDataSerializer<T> get() {
+                return deferredHolder.get();
+            }
+        };
+    }
+
+    @Override
+    public <T> RegistryHandler<GameRule<?>, GameRule<T>> registerGameRule(String name, GameRule<T> gameRule) {
+        DeferredHolder<GameRule<?>, GameRule<T>> deferredHolder = GAME_RULES.register(name, () -> gameRule);
+
+        return new RegistryHandler<>() {
+            @Override
+            public Holder<GameRule<?>> holder() {
+                return deferredHolder;
+            }
+
+            @Override
+            public GameRule<T> get() {
                 return deferredHolder.get();
             }
         };
@@ -178,5 +233,8 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
         RECIPE_TYPES.register(eventBus);
         RECIPE_SERIALIZERS.register(eventBus);
         MENUS.register(eventBus);
+        ENTITIES.register(eventBus);
+        ENTITY_SERIALIZERS.register(eventBus);
+        GAME_RULES.register(eventBus);
     }
 }

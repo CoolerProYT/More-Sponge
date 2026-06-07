@@ -61,6 +61,10 @@ public class MSCreativeTabs {
                 output.accept(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_4X);
                 output.accept(MSBlocks.COMPRESSED_FIRE_SPONGE_5X);
                 output.accept(MSBlocks.BURNT_COMPRESSED_FIRE_SPONGE_5X);
+                output.accept(MSItems.WATER_SPONGE_TRADER_SPAWN_EGG);
+                output.accept(MSItems.LAVA_SPONGE_TRADER_SPAWN_EGG);
+                output.accept(MSItems.FIRE_SPONGE_TRADER_SPAWN_EGG);
+                output.accept(MSItems.SNOW_SPONGE_TRADER_SPAWN_EGG);
             }
     );
 

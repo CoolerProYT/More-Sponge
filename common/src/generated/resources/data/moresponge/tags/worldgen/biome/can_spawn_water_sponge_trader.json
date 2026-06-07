@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#minecraft:is_ocean",
+    "#minecraft:is_deep_ocean",
+    "#minecraft:is_river",
+    "#minecraft:is_beach",
+    "#minecraft:allows_surface_slime_spawns"
+  ]
+}

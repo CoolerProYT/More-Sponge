@@ -55,10 +55,7 @@ public class MSBlocks {
     public static RegistryHandler.Blocks<SnowSpongeBlock> COMPRESSED_SNOW_SPONGE_5X;
 
     public static RegistryHandler.Blocks<FrozenSnowSpongeBlock> FROZEN_SNOW_SPONGE;
-
-    public static RegistryHandler.Blocks<FreezerBlock> FREEZER;
     public static RegistryHandler.Blocks<FrozenSnowSpongeBlock> FROZEN_COMPRESSED_SNOW_SPONGE;
-
     public static RegistryHandler.Blocks<FrozenSnowSpongeBlock> FROZEN_COMPRESSED_SNOW_SPONGE_2X;
     public static RegistryHandler.Blocks<FrozenSnowSpongeBlock> FROZEN_COMPRESSED_SNOW_SPONGE_3X;
     public static RegistryHandler.Blocks<FrozenSnowSpongeBlock> FROZEN_COMPRESSED_SNOW_SPONGE_4X;
@@ -77,6 +74,8 @@ public class MSBlocks {
     public static RegistryHandler.Blocks<BurntFireSpongeBlock> BURNT_COMPRESSED_FIRE_SPONGE_3X;
     public static RegistryHandler.Blocks<BurntFireSpongeBlock> BURNT_COMPRESSED_FIRE_SPONGE_4X;
     public static RegistryHandler.Blocks<BurntFireSpongeBlock> BURNT_COMPRESSED_FIRE_SPONGE_5X;
+
+    public static RegistryHandler.Blocks<FreezerBlock> FREEZER;
 
     static {
         COMPRESSED_SPONGE = registerBlock("compressed_sponge", p -> new WaterSpongeBlock(p, 10, 512, () -> WET_COMPRESSED_SPONGE), BlockBehaviour.Properties.ofFullCopy(Blocks.SPONGE));
