@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "moresponge:item/snow_sponge_trader_spawn_egg"
+  }
+}

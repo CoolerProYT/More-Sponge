@@ -1,0 +1,5 @@
+{
+  "amount": 2.0,
+  "random_sequence": "moresponge:trade_set/sponge_trader/fire_common",
+  "trades": "#moresponge:sponge_trader/fire_common"
+}
