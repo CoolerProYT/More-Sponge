@@ -3,7 +3,6 @@ package com.coolerpromc.moresponge.block.custom;
 import com.coolerpromc.moresponge.block.entity.MSBlockEntities;
 import com.coolerpromc.moresponge.block.entity.custom.FreezerBlockEntity;
 import com.coolerpromc.moresponge.platform.Services;
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -28,18 +27,12 @@ import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
 public class FreezerBlock extends BaseEntityBlock {
-    public static final MapCodec<FreezerBlock> CODEC = simpleCodec(FreezerBlock::new);
     public static final EnumProperty<Direction> FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
     public FreezerBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
-    }
-
-    @Override
-    protected @NonNull MapCodec<FreezerBlock> codec() {
-        return CODEC;
     }
 
     @Override

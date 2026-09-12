@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 public class MSLootTableProvider extends LootTableProvider {
-    public MSLootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, Set.of(), List.of(new SubProviderEntry(MSBlockLootSubProvider::new, LootContextParamSets.BLOCK)), registries);
+    public MSLootTableProvider() {
+        super(Set.of(), List.of(new SubProviderEntry(MSBlockLootSubProvider::new, LootContextParamSets.BLOCK)));
     }
 }

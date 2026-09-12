@@ -1,24 +1,22 @@
 {
   "type": "moresponge:ms_loot_modifier",
-  "conditions": [
-    {
-      "condition": "minecraft:any_of",
-      "terms": [
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/ruined_portal"
-        },
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/desert_pyramid"
-        },
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/village/village_desert_house"
-        }
-      ]
-    }
-  ],
+  "condition": {
+    "type": "minecraft:any_of",
+    "terms": [
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/ruined_portal"
+      },
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/desert_pyramid"
+      },
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/village/village_desert_house"
+      }
+    ]
+  },
   "item": "moresponge:fire_sponge",
   "max": 4,
   "min": 0,

@@ -1,32 +1,30 @@
 {
   "type": "moresponge:ms_loot_modifier",
-  "conditions": [
-    {
-      "condition": "minecraft:any_of",
-      "terms": [
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/bastion_bridge"
-        },
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/bastion_hoglin_stable"
-        },
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/bastion_other"
-        },
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/bastion_treasure"
-        },
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:chests/nether_bridge"
-        }
-      ]
-    }
-  ],
+  "condition": {
+    "type": "minecraft:any_of",
+    "terms": [
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/bastion_bridge"
+      },
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/bastion_hoglin_stable"
+      },
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/bastion_other"
+      },
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/bastion_treasure"
+      },
+      {
+        "type": "neoforge:loot_table_id",
+        "loot_table_id": "minecraft:chests/nether_bridge"
+      }
+    ]
+  },
   "item": "moresponge:lava_sponge",
   "max": 4,
   "min": 0,

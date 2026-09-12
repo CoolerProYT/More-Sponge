@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:freezing/compressed_lava_sponge"
+        "recipes": "moresponge:freezing/compressed_lava_sponge"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

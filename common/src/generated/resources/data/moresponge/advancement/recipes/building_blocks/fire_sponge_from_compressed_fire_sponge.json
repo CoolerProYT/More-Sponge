@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:fire_sponge_from_compressed_fire_sponge"
+        "recipes": "moresponge:fire_sponge_from_compressed_fire_sponge"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

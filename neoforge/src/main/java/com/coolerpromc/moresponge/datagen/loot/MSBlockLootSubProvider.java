@@ -2,9 +2,9 @@ package com.coolerpromc.moresponge.datagen.loot;
 
 import com.coolerpromc.moresponge.Constants;
 import com.coolerpromc.moresponge.block.MSBlocks;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 
@@ -13,8 +13,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class MSBlockLootSubProvider extends BlockLootSubProvider {
-    public MSBlockLootSubProvider(HolderLookup.Provider registries) {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), registries);
+    public MSBlockLootSubProvider(LootTableSubProvider.Context output) {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags(), output);
     }
 
     @Override

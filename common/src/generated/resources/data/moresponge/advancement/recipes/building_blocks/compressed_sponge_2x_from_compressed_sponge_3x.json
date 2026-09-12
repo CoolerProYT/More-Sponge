@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:compressed_sponge_2x_from_compressed_sponge_3x"
+        "recipes": "moresponge:compressed_sponge_2x_from_compressed_sponge_3x"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:compressed_sponge_4x_from_smelting"
+        "recipes": "moresponge:compressed_sponge_4x_from_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

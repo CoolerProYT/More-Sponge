@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:snow_sponge_from_smelting"
+        "recipes": "moresponge:snow_sponge_from_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

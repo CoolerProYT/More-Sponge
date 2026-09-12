@@ -10,9 +10,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.trading.TradeCost;
 import net.minecraft.world.item.trading.VillagerTrade;
 
-import java.util.List;
-import java.util.Optional;
-
 public class MSVillagerTrades {
     // SPONGE_TRADER_BUYING
     public static final ResourceKey<VillagerTrade> SPONGE_TRADER_SPONGE_EMERALD = resourceKey("sponge_emerald");
@@ -157,7 +154,7 @@ public class MSVillagerTrades {
     }
 
     public static VillagerTrade trade(TradeCost wants, ItemStackTemplate gives, int maxUses, int xp, float reputationDiscount){
-        return new VillagerTrade(wants, gives, maxUses, xp, reputationDiscount, Optional.empty(), List.of());
+        return VillagerTrade.builder(wants, gives, maxUses, xp, reputationDiscount).build();
     }
 
     public static void register(BootstrapContext<VillagerTrade> context, ResourceKey<VillagerTrade> resourceKey, VillagerTrade villagerTrade) {

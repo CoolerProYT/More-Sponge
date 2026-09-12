@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:compressed_sponge_5x"
+        "recipes": "moresponge:compressed_sponge_5x"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

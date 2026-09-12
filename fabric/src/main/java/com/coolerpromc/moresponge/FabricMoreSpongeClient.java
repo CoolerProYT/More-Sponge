@@ -10,6 +10,7 @@ import net.fabricmc.fabric.api.recipe.v1.sync.SynchronizedRecipes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeMap;
 
 public class FabricMoreSpongeClient implements ClientModInitializer {
@@ -26,6 +27,6 @@ public class FabricMoreSpongeClient implements ClientModInitializer {
     }
 
     private void onRecipesReceived(Minecraft minecraft, SynchronizedRecipes synchronizedRecipes) {
-        MoreSpongeClient.syncedRecipes = RecipeMap.create(synchronizedRecipes.recipes());
+        MoreSpongeClient.syncedRecipes = RecipeMap.create(minecraft.getConnection().registryAccess().lookupOrThrow(Registries.RECIPE));
     }
 }

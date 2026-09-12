@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:freezing/fire_sponge"
+        "recipes": "moresponge:freezing/fire_sponge"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

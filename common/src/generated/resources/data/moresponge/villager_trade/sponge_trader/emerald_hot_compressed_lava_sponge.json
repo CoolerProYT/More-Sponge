@@ -2,10 +2,10 @@
   "gives": {
     "id": "moresponge:hot_compressed_lava_sponge"
   },
-  "max_uses": 2.0,
+  "max_uses": 2,
   "reputation_discount": 0.05,
   "wants": {
-    "count": 16.0,
+    "count": 16,
     "id": "minecraft:emerald"
   }
 }

@@ -15,6 +15,7 @@ import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
 import net.fabricmc.fabric.api.transfer.v1.storage.Storage;
 import net.fabricmc.fabric.api.transfer.v1.storage.base.CombinedSlottedStorage;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.Mob;
@@ -23,7 +24,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
+import net.minecraft.world.level.storage.loot.providers.number.ints.UniformGenerator;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
@@ -110,9 +112,9 @@ public class FabricMoreSponge implements ModInitializer {
 
     private LootPool.Builder buildPool(Item item, int min, int max) {
         return LootPool.lootPool()
-                .setRolls(UniformGenerator.between(1, 1))
+                .setRolls(Holder.direct(new UniformGenerator(ContextIntProviders.exactly(1), ContextIntProviders.exactly(1))))
                 .add(LootItem.lootTableItem(item)
-                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
+                        .apply(SetItemCountFunction.setCount(Holder.direct(new UniformGenerator(ContextIntProviders.exactly(min), ContextIntProviders.exactly(max)))))
                 );
     }
 }

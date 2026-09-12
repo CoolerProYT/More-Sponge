@@ -1,16 +1,12 @@
 {
   "type": "moresponge:ms_loot_modifier",
-  "conditions": [
-    {
-      "condition": "minecraft:any_of",
-      "terms": [
-        {
-          "condition": "neoforge:loot_table_id",
-          "loot_table_id": "minecraft:entities/ender_dragon"
-        }
-      ]
+  "condition": {
+    "type": "minecraft:any_of",
+    "terms": {
+      "type": "neoforge:loot_table_id",
+      "loot_table_id": "minecraft:entities/ender_dragon"
     }
-  ],
+  },
   "item": "moresponge:compressed_lava_sponge_2x",
   "max": 2,
   "min": 1,

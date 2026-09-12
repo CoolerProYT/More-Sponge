@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:compressed_lava_sponge_3x_from_compressed_lava_sponge_4x"
+        "recipes": "moresponge:compressed_lava_sponge_3x_from_compressed_lava_sponge_4x"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

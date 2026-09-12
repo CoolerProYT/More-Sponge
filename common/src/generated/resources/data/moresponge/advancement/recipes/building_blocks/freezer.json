@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:freezer"
+        "recipes": "moresponge:freezer"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

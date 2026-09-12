@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moresponge:freezing/compressed_fire_sponge_3x"
+        "recipes": "moresponge:freezing/compressed_fire_sponge_3x"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

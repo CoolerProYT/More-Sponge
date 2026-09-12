@@ -4,6 +4,7 @@ import com.coolerpromc.moresponge.Constants;
 import com.coolerpromc.moresponge.block.MSBlocks;
 import com.coolerpromc.moresponge.platform.util.RegistryHandler;
 import com.coolerpromc.moresponge.recipe.builder.FreezingRecipeBuilder;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -11,6 +12,7 @@ import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.ItemStackTemplate;
@@ -25,8 +27,8 @@ import org.jspecify.annotations.NonNull;
 import java.util.concurrent.CompletableFuture;
 
 public class MSRecipeProvider extends RecipeProvider {
-    protected MSRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-        super(registries, output);
+    protected MSRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, advancementOutput);
     }
 
     @Override
@@ -105,21 +107,5 @@ public class MSRecipeProvider extends RecipeProvider {
 
     private ResourceKey<Recipe<?>> key(String path){
         return ResourceKey.create(Registries.RECIPE, Constants.id(path));
-    }
-
-    public static class Runner extends RecipeProvider.Runner {
-        protected Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries) {
-            super(packOutput, registries);
-        }
-
-        @Override
-        protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.@NonNull Provider provider, @NonNull RecipeOutput recipeOutput) {
-            return new MSRecipeProvider(provider, recipeOutput);
-        }
-
-        @Override
-        public @NonNull String getName() {
-            return "More Sponge Recipes";
-        }
     }
 }
