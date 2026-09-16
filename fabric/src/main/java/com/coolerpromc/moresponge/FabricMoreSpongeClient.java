@@ -7,6 +7,7 @@ import com.coolerpromc.moresponge.screen.custom.FreezerScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.recipe.v1.sync.ClientRecipeSynchronizedEvent;
 import net.fabricmc.fabric.api.recipe.v1.sync.SynchronizedRecipes;
+import net.fabricmc.fabric.impl.recipe.sync.SynchronizedRecipesImpl;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -27,6 +28,7 @@ public class FabricMoreSpongeClient implements ClientModInitializer {
     }
 
     private void onRecipesReceived(Minecraft minecraft, SynchronizedRecipes synchronizedRecipes) {
-        MoreSpongeClient.syncedRecipes = RecipeMap.create(minecraft.getConnection().registryAccess().lookupOrThrow(Registries.RECIPE));
+        SynchronizedRecipesImpl impl = (SynchronizedRecipesImpl) synchronizedRecipes;
+        MoreSpongeClient.syncedRecipes = new RecipeMap(impl.byType(), impl.byKey());
     }
 }
