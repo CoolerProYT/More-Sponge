@@ -1,0 +1,50 @@
+:root {
+  --vp-c-brand-1: #8a7a12;
+  --vp-c-brand-2: #a08f1c;
+  --vp-c-brand-3: #b5a326;
+  --vp-c-brand-soft: rgba(181, 163, 38, 0.16);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(120deg, #c9b52e 10%, #d9722b 45%, #6fa8c9 75%, #3a8fd0);
+  --vp-home-hero-image-background-image: radial-gradient(circle, rgba(215, 196, 60, 0.4) 0%, rgba(215, 196, 60, 0) 70%);
+  --vp-home-hero-image-filter: blur(40px);
+
+  --ms-slot-bg: #8b8b8b;
+  --ms-slot-dark: #373737;
+  --ms-slot-light: #ffffff;
+  --ms-water: #2f7fc1;
+  --ms-lava: #c2521b;
+  --ms-snow: #5f8fa8;
+  --ms-fire: #b7791f;
+}
+
+.dark {
+  --vp-c-brand-1: #e0cf52;
+  --vp-c-brand-2: #d1bf3f;
+  --vp-c-brand-3: #b5a326;
+  --vp-c-brand-soft: rgba(224, 207, 82, 0.16);
+  --ms-water: #6cb4ee;
+  --ms-lava: #f08a4b;
+  --ms-snow: #a9d3e8;
+  --ms-fire: #f1b453;
+}
+
+/* Pixel art stays crisp at any size. */
+.VPHero .image-src,
+.pixelated {
+  image-rendering: pixelated;
+}
+
+.VPHero .image-src {
+  width: 220px;
+  height: 220px;
+}
+
+.ms-muted {
+  color: var(--vp-c-text-2);
+  font-size: 0.875em;
+}
+
+.ms-water { --ms-accent: var(--ms-water); }
+.ms-lava { --ms-accent: var(--ms-lava); }
+.ms-snow { --ms-accent: var(--ms-snow); }
+.ms-fire { --ms-accent: var(--ms-fire); }
