@@ -49,6 +49,7 @@ neoForge {
 dependencies {
     compileOnly("mezz.jei:jei-${dependencies_minecraft_version}-neoforge-api:${jei_version}")
     runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+    jarJar implementation("com.coolerpromc.coolerconfig:coolerconfig-neoforge-${minecraft_version}:${coolerconfig_version}")
 }
 
 sourceSets.main.resources { srcDirs 'src/generated/resources' }

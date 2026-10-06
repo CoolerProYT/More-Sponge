@@ -29,6 +29,10 @@ repositories {
         name = 'BlameJared'
         url = 'https://maven.blamejared.com'
     }
+    maven {
+        name = 'CoolerProMC'
+        url = 'https://maven.coolerpromc.com/releases'
+    }
 }
 
 sourcesJar {
@@ -74,6 +78,7 @@ processResources {
             'java_version'                 : java_version,
             'jei_version'                  : jei_version,
             'dependencies_minecraft_version' : dependencies_minecraft_version,
+            'coolerconfig_version'         : coolerconfig_version
     ]
 
     var jsonExpandProps = expandProps.collectEntries {

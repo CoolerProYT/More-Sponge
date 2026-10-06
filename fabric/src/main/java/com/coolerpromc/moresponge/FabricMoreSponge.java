@@ -3,6 +3,7 @@ package com.coolerpromc.moresponge;
 import com.coolerpromc.moresponge.block.MSBlocks;
 import com.coolerpromc.moresponge.block.entity.MSBlockEntities;
 import com.coolerpromc.moresponge.block.entity.custom.FreezerBlockEntity;
+import com.coolerpromc.moresponge.config.MSConfig;
 import com.coolerpromc.moresponge.entity.MSEntities;
 import com.coolerpromc.moresponge.recipe.MSRecipes;
 import net.fabricmc.api.ModInitializer;
@@ -84,6 +85,8 @@ public class FabricMoreSponge implements ModInitializer {
         FabricDefaultAttributeRegistry.register(MSEntities.SNOW_SPONGE_TRADER.get(), Mob.createMobAttributes());
 
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registries) -> {
+            if (!MSConfig.enableLootModifier()) return;
+
             Identifier id = key.identifier();
 
             LOOT_MAP.forEach((item, tables) -> {
