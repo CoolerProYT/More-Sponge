@@ -17,3 +17,5 @@ Each of these mobs always drops 1–2 compressed 2x sponges when killed.
 ::: info
 On NeoForge, this loot is added by global loot modifiers in `data/moresponge/loot_modifiers/`, which a datapack can override. On Fabric, it is built into the mod.
 :::
+
+To turn all of this loot off, set `enableLootModifier = false` in the [config](./config).

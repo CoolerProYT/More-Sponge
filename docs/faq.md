@@ -23,9 +23,14 @@ Frozen sponges break like snow blocks and drop nothing unless you use a hoe.
 ## I never see sponge traders
 
 - Check that `/gamerule moresponge:spawn_sponge_traders` is `true`.
+- Check that `spawnSpongeTrader` is `true` in `config/moresponge-common.toml` (see [Configuration](./guide/config)).
 - Traders only spawn in [matching biomes](./guide/traders). Plains and forests have no sponge trader.
 - There is only one try per in-game day, starting at a 30% chance.
 - Spawn eggs work in any biome.
+
+## Can I stop sponges appearing in chests and boss drops?
+
+Yes. Set `enableLootModifier = false` in `config/moresponge-common.toml`. On Fabric, run `/reload` afterwards. See [Configuration](./guide/config).
 
 ## Does this work with the vanilla sponge?
 

@@ -36,6 +36,8 @@ The spawn timer runs in every dimension. In the Nether, Lava Sponge Traders appe
 /gamerule moresponge:spawn_sponge_traders false
 ```
 
+To turn traders off in every world, set `spawnSpongeTrader = false` in the [config](./config). Traders only spawn when the config option and the game rule are both `true`.
+
 ## Trades
 
 Each trader picks random offers from three pools when you first talk to it: two it **buys**, two **common** sales and one **uncommon** sale.

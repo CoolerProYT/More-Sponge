@@ -26,6 +26,7 @@ export default defineConfig({
           { text: 'Getting started', link: '/guide/getting-started' },
           { text: 'How sponges work', link: '/guide/sponges' },
           { text: 'Compression', link: '/guide/compression' },
+          { text: 'Configuration', link: '/guide/config' },
         ],
       },
       {
