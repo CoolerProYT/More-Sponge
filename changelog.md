@@ -1,5 +1,4 @@
-## 26.1.2.3
-- Added 4 `Sponge Trader` entities that will spawn randomly in specific biome (like wandering trader)
-- Added 4 Trade Sets
-- Added 4 Biome Tags
-- Added game rule `moresponge:spawn_sponge_traders`
+## 26.1.2.4
+- Added config `config/moresponge-common.toml` (requires CoolerConfig, bundled)
+  - `spawnSpongeTrader`: disable sponge traders from spawning naturally
+  - `enableLootModifier`: disable sponges added to chest and boss loot
