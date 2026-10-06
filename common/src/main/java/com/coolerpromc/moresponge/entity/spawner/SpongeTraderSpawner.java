@@ -1,5 +1,6 @@
 package com.coolerpromc.moresponge.entity.spawner;
 
+import com.coolerpromc.moresponge.config.MSConfig;
 import com.coolerpromc.moresponge.entity.MSEntities;
 import com.coolerpromc.moresponge.entity.custom.SpongeTrader;
 import com.coolerpromc.moresponge.gamerule.MSGameRules;
@@ -48,7 +49,7 @@ public class SpongeTraderSpawner implements CustomSpawner {
 
     @Override
     public void tick(ServerLevel level, boolean b) {
-        if (level.getGameRules().get(MSGameRules.SPAWN_SPONGE_TRADERS.get())) {
+        if (MSConfig.spawnSpongeTrader() && level.getGameRules().get(MSGameRules.SPAWN_SPONGE_TRADERS.get())) {
             if (--this.tickDelay <= 0) {
                 this.tickDelay = DEFAULT_TICK_DELAY;
                 SpongeTraderData data = this.getTraderData();

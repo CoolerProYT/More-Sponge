@@ -1,5 +1,6 @@
 package com.coolerpromc.moresponge.datagen.loot;
 
+import com.coolerpromc.moresponge.config.MSConfig;
 import com.coolerpromc.moresponge.datagen.MSGlobalLootModifierProvider;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
@@ -39,6 +40,10 @@ public class MSLootModifier extends LootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+        if (!MSConfig.enableLootModifier()) {
+            return generatedLoot;
+        }
+
         RandomSource random = context.getRandom();
         int count = random.nextIntBetweenInclusive(min, max);
         generatedLoot.add(new ItemStack(item, count));
